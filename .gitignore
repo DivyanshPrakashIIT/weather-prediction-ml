@@ -1,0 +1,12 @@
+data/raw/
+data/processed/
+*.csv
+*.xlsx
+models/
+*.pkl
+*.joblib
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+*.log
