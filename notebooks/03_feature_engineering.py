@@ -1,7 +1,5 @@
-# ============================================================
+
 # PHASE 4: FEATURE ENGINEERING
-# Weather Prediction ML Project
-# ============================================================
 
 import pandas as pd
 import numpy as np
@@ -136,5 +134,5 @@ import joblib
 feature_meta = {'features': FEATURES, 'target': TARGET}
 joblib.dump(feature_meta, "models/feature_meta.pkl")
 
-print("\n✅ Feature-engineered data saved!")
+print("\n Feature-engineered data saved!")
 print(f"   Features list saved to models/feature_meta.pkl")
