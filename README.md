@@ -42,28 +42,9 @@ weather-prediction-ml/
 
 ---
 
-## 🚀 How to Run (Google Colab)
-
-### One-time setup
-1. Go to [github.com/new](https://github.com/new) and create repo named `weather-prediction-ml`
-2. Push this entire folder (see "Push to GitHub" below)
-3. Open `RUN_IN_COLAB.ipynb` in Google Colab
-4. Run cells **one by one in order** — each step is clearly labelled
-
-### Push to GitHub (first time)
-```bash
-cd weather-prediction-ml
-git init
-git add .
-git commit -m "Initial project setup"
-git branch -M main
-git remote add origin https://github.com/DivyanshPrakashIIT/weather-prediction-ml.git
-git push -u origin main
-```
-
 ---
 
-## 🔬 Pipeline Overview
+##  Pipeline Overview
 
 | Step | File | What it does |
 |------|------|--------------|
@@ -72,7 +53,7 @@ git push -u origin main
 | Train | `04_model_train_evaluate.py` | Trains XGBoost + LightGBM, SHAP plots, saves models |
 | App | `app/main.py` | Streamlit UI for predictions |
 
-## 📈 Model Performance
+##  Model Performance
 
 | Model | RMSE | MAE | R² |
 |-------|------|-----|----|
@@ -82,5 +63,5 @@ git push -u origin main
 
 ---
 
-## 👨‍💻 Author
+##  Author
 **Divyansh Prakash** | GitHub: [@DivyanshPrakashIIT](https://github.com/DivyanshPrakashIIT)
