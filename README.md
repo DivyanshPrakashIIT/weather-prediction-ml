@@ -1,4 +1,4 @@
-# 🌤️ Weather Prediction ML Project
+#  Weather Prediction ML Project
 
 > End-to-end ML pipeline for forecasting Delhi's daily mean temperature using XGBoost, LightGBM, SHAP, and Streamlit.
 
@@ -9,7 +9,7 @@
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 weather-prediction-ml/
