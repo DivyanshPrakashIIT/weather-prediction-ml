@@ -1,7 +1,4 @@
-# ============================================================
 # PHASE 5–9: MODEL TRAINING, EVALUATION, SHAP, ENSEMBLE, SAVING
-# Weather Prediction ML Project
-# ============================================================
 
 import pandas as pd
 import numpy as np
@@ -87,10 +84,8 @@ xgb_model.fit(
     eval_set=[(X_val, y_val)],
     verbose=50
 )
-
 xgb_val_pred  = xgb_model.predict(X_val)
 xgb_test_pred = xgb_model.predict(X_test)
-
 xgb_results = evaluate("XGBoost", y_val, xgb_val_pred)
 
 # ── CELL 5: LIGHTGBM MODEL ────────────────────────────────────
@@ -127,13 +122,10 @@ lgb_model.fit(
 
 lgb_val_pred  = lgb_model.predict(X_val)
 lgb_test_pred = lgb_model.predict(X_test)
-
 lgb_results = evaluate("LightGBM", y_val, lgb_val_pred)
-
 # ── CELL 6: ACTUAL vs PREDICTED PLOTS ─────────────────────────
 fig, axes = plt.subplots(1, 2, figsize=(16, 5))
 val_dates = train_fe['date'].iloc[split_idx:].values
-
 for ax, name, pred in zip(axes,
                            ['XGBoost', 'LightGBM'],
                            [xgb_val_pred, lgb_val_pred]):
@@ -143,7 +135,6 @@ for ax, name, pred in zip(axes,
     ax.set_xlabel('Date')
     ax.set_ylabel('Mean Temperature (°C)')
     ax.legend()
-
 plt.tight_layout()
 plt.savefig("reports/actual_vs_predicted.png", dpi=150, bbox_inches='tight')
 plt.show()
@@ -182,7 +173,7 @@ plt.savefig("reports/residuals.png", dpi=150, bbox_inches='tight')
 plt.show()
 
 # ── CELL 9: SHAP EXPLAINABILITY ───────────────────────────────
-print("\n⚙️  Computing SHAP values (XGBoost)…")
+print("\n  Computing SHAP values (XGBoost)…")
 explainer_xgb = shap.TreeExplainer(xgb_model)
 shap_values   = explainer_xgb.shap_values(X_val)
 
@@ -243,7 +234,7 @@ joblib.dump(xgb_model, "models/xgboost_model.pkl")
 joblib.dump(lgb_model, "models/lightgbm_model.pkl")
 joblib.dump({'w_xgb': w_xgb, 'w_lgb': w_lgb}, "models/ensemble_weights.pkl")
 
-print("\n✅ Models saved:")
+print("\n Models saved:")
 print("   models/xgboost_model.pkl")
 print("   models/lightgbm_model.pkl")
 print("   models/ensemble_weights.pkl")
@@ -252,5 +243,5 @@ print("   models/feature_meta.pkl")
 # ── CELL 12: Verify Models Load Correctly ─────────────────────
 xgb_loaded = joblib.load("models/xgboost_model.pkl")
 sample = X_test.iloc[:3]
-print("\n🔍 Sanity check – Predictions on first 3 test rows:")
+print("\n Sanity check – Predictions on first 3 test rows:")
 print(xgb_loaded.predict(sample))
