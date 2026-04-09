@@ -1,7 +1,5 @@
-# ============================================================
+
 # PHASE 2 & 3: DATA UNDERSTANDING + DATA CLEANING
-# Weather Prediction ML Project - Delhi Weather Dataset
-# ============================================================
 
 # ── CELL 1: Imports ──────────────────────────────────────────
 import pandas as pd
@@ -14,13 +12,12 @@ warnings.filterwarnings('ignore')
 plt.style.use('seaborn-v0_8-whitegrid')
 sns.set_palette("husl")
 
-print("✅ Libraries loaded successfully")
+print("Libraries loaded successfully")
 
 # ── CELL 2: Load Data ─────────────────────────────────────────
 train = pd.read_csv("data/raw/Train.csv")
 test  = pd.read_csv("data/raw/Test.csv")
 
-# Parse dates
 train['date'] = pd.to_datetime(train['date'])
 test['date']  = pd.to_datetime(test['date'])
 
